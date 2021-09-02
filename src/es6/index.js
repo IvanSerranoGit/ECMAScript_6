@@ -1,7 +1,7 @@
  function newFunction(name, age, country){
-     var name = name || n'Ivan';
+     var name = name || 'Ivan';
      var age = age || 31;
-     var country = contry || 'MX';
+     var country = country || 'MX';
      console.log(name, age, country);
  }
 
@@ -92,3 +92,56 @@ const listOfNames4 = name => {
 }
 
 const square = num => num * num;
+
+
+//Promesas
+const helloPromise = () => {
+    return new Promise((resolve, reject)=>{
+        if (true){
+            resolve('Hey!');
+        }else {
+            reject('Ups!');
+        }
+    });
+}
+helloPromise()
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+
+    //clases
+
+    class calculator {
+        constructor(){
+            this.valueA = 0;
+            this.valueB = 0;
+        }
+        sum(valueA, valueB){
+            this.valueA = valueA;
+            this.valueB = valueB;
+            return this.valueA + this.valueB;
+        }
+    }
+
+    const calc = new calculator();
+    console.log(calc.sum(2,2));
+
+    // import y export
+
+    import { hello } from './module';
+    hello();
+
+    // generator
+
+    function* helloWorld(){
+        if(true){
+            yield 'Hello, ';
+        }
+        if (true){
+            yield 'World';
+        }
+    };
+
+    const generatorHello = helloWorld();
+    console.log(generatorHello.next().value);
+    console.log(generatorHello.next().value);
+    console.log(generatorHello.next().value);
